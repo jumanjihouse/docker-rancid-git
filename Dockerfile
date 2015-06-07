@@ -14,18 +14,18 @@ RUN apk add --update \
     && adduser -D -s /bin/sh rancid
 
 # Gross kludge.
-RUN cd /usr/bin; \
-    ln -s aclocal aclocal-1.14; \
+RUN cd /usr/bin && \
+    ln -s aclocal aclocal-1.14 && \
     ln -s automake automake-1.14
 
 # Build and install rancid-git.
-RUN cd /root; \
-    git clone https://github.com/dotwaffle/rancid-git.git; \
-    cd rancid-git; \
-    ./configure --sysconfdir=/etc/rancid --bindir=/usr/libexec/rancid --enable-conf-install; \
-    make install; \
-    echo 'export PATH=$PATH:/usr/libexec/rancid/' >> /etc/profile.d/rancid_path.sh; \
-    echo 'MANDATORY_MANPATH /usr/local/rancid/share/man' >> /etc/man.config; \
+RUN cd /root && \
+    git clone https://github.com/dotwaffle/rancid-git.git && \
+    cd rancid-git && \
+    ./configure --sysconfdir=/etc/rancid --bindir=/usr/libexec/rancid --enable-conf-install && \
+    make install && \
+    echo 'export PATH=$PATH:/usr/libexec/rancid/' >> /etc/profile.d/rancid_path.sh && \
+    echo 'MANDATORY_MANPATH /usr/local/rancid/share/man' >> /etc/man.config && \
     echo 'MANDATORY_MANPATH /usr/local/rancid/share/man' >> /etc/man_db.conf
 
 # Update mandb so `man -k rancid' works.
