@@ -1,10 +1,10 @@
-rancid-git on CentOS 7
-======================
+rancid-git on Alpine Linux
+==========================
 
 Overview
 --------
 
-Demonstrate one way to build `rancid-git` on CentOS.
+Demonstrate one way to build `rancid-git`.
 
 
 Related projects
@@ -21,11 +21,11 @@ Build this image locally on a host with Docker:
 
     git clone https://github.com/jumanjihouse/docker-rancid-git.git
     cd docker-rancid-git
-    docker build --rm -t rancid-git:centos7 .
+    docker build --rm -t rancid-git .
 
 Run a container with bash from the built image:
 
-    docker run --rm -it rancid-git:centos7
+    docker run --rm -it rancid-git
 
 
 License
