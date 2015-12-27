@@ -1,16 +1,20 @@
-FROM alpine:3.2
+FROM alpine:3.3
+
+# Use less to view man-pages since busybox `more' lacks the -s option.
+ENV PAGER=less
 
 # Install dependencies.
-RUN apk add --update \
+RUN apk add --no-cache \
       alpine-sdk \
       autoconf \
       automake \
+      bash \
       expect \
       gcc \
       git \
       make \
       man man-pages \
-    && rm -f /var/cache/apk/* \
+      mdocml-apropos \
     && adduser -D -s /bin/sh rancid
 
 # Gross kludge.
@@ -22,14 +26,17 @@ RUN cd /usr/bin && \
 RUN cd /root && \
     git clone https://github.com/dotwaffle/rancid-git.git && \
     cd rancid-git && \
-    ./configure --sysconfdir=/etc/rancid --bindir=/usr/libexec/rancid --enable-conf-install && \
+    ./configure \
+      --mandir=/usr/local/share/man \
+      --sysconfdir=/etc/rancid \
+      --bindir=/usr/bin/ \
+      --enable-conf-install \
+      && \
     make install && \
-    echo 'export PATH=$PATH:/usr/libexec/rancid/' >> /etc/profile.d/rancid_path.sh && \
-    echo 'MANDATORY_MANPATH /usr/local/rancid/share/man' >> /etc/man.config && \
-    echo 'MANDATORY_MANPATH /usr/local/rancid/share/man' >> /etc/man_db.conf
+    rm -fr /root/rancid-git
 
 # Update mandb so `man -k rancid' works.
-RUN makewhatis -w 2> /dev/null
+RUN makewhatis
 
 # Container starts as user "rancid" in home dir.
 USER rancid
