@@ -5,25 +5,23 @@ ENV PAGER=less
 
 # Install dependencies.
 RUN apk add --no-cache \
+      bash \
+      expect \
+      git \
+      man man-pages \
+      mdocml-apropos \
+    && apk add --no-cache --virtual .builddeps \
       alpine-sdk \
       autoconf \
       automake \
-      bash \
-      expect \
       gcc \
-      git \
       make \
-      man man-pages \
-      mdocml-apropos \
-    && adduser -D -s /bin/sh rancid
-
-# Gross kludge.
-RUN cd /usr/bin && \
+    && adduser -D -s /bin/sh rancid \
+    && \
+    cd /usr/bin && \
     ln -s aclocal aclocal-1.14 && \
-    ln -s automake automake-1.14
-
-# Build and install rancid-git.
-RUN cd /root && \
+    ln -s automake automake-1.14 && \
+    cd /root && \
     git clone https://github.com/dotwaffle/rancid-git.git && \
     cd rancid-git && \
     ./configure \
@@ -33,7 +31,8 @@ RUN cd /root && \
       --enable-conf-install \
       && \
     make install && \
-    rm -fr /root/rancid-git
+    rm -fr /root/rancid-git && \
+    apk del --purge .builddeps
 
 # Update mandb so `man -k rancid' works.
 RUN makewhatis
