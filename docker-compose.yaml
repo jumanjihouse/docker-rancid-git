@@ -18,6 +18,14 @@ services:
     mem_limit: 512M
     shm_size: 32M
 
+  rancid_tag_pessimistic:
+    <<: *defaults
+    image: jumanjiman/rancid:${TAG}
+
+  rancid_tag_optimistic:
+    <<: *defaults
+    image: jumanjiman/rancid:latest
+
   help:
     <<: *defaults
     entrypoint: rancid
