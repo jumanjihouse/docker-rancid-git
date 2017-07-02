@@ -8,3 +8,8 @@ services:
     stdin_open: true
     tty: true
     read_only: true
+
+  help:
+    <<: *defaults
+    entrypoint: rancid
+    command: -h
