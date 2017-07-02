@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  rancid: &defaults
+    image: rancid
+    build:
+      context: ./
+    stdin_open: true
+    tty: true
+    read_only: true
