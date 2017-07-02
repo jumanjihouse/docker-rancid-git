@@ -3,6 +3,9 @@ FROM alpine:3.6
 # Use less to view man-pages since busybox `more' lacks the -s option.
 ENV PAGER=less
 
+ARG VERSION
+ARG RELEASE
+
 # Install dependencies.
 RUN apk add --no-cache \
       bash \
@@ -12,7 +15,7 @@ RUN apk add --no-cache \
       mdocml-apropos \
       perl \
       perl-socket6 \
-      "rancid=3.6.1-r0" \
+      "rancid=${VERSION}-${RELEASE}" \
       rancid-doc \
       && \
     :

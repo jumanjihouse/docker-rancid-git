@@ -5,6 +5,9 @@ services:
     image: rancid
     build:
       context: ./
+      args:
+        - VERSION
+        - RELEASE
     stdin_open: true
     tty: true
     read_only: true
@@ -13,3 +16,8 @@ services:
     <<: *defaults
     entrypoint: rancid
     command: -h
+
+  version:
+    <<: *defaults
+    entrypoint: rancid
+    command: -V

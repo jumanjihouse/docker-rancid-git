@@ -1,4 +1,11 @@
 #!/bin/sh
 set -e
+set -u
+
+cat > ci/vars <<EOF
+export VERSION=3.6.1
+export RELEASE=r0
+EOF
+. ci/vars
 
 docker-compose build
