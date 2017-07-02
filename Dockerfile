@@ -10,6 +10,8 @@ RUN apk add --no-cache \
       git \
       man man-pages \
       mdocml-apropos \
+      perl \
+      perl-socket6 \
     && apk add --no-cache --virtual .builddeps \
       alpine-sdk \
       autoconf \
