@@ -3,3 +3,5 @@
 */.git
 README.md
 LICENSE
+ci/
+.circleci/

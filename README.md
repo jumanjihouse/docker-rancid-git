@@ -21,7 +21,7 @@ Build this image locally on a host with Docker:
 
     git clone https://github.com/jumanjihouse/docker-rancid-git.git
     cd docker-rancid-git
-    docker build --rm -t rancid-git .
+    ci/build
 
 Run a container with bash from the built image:
 
