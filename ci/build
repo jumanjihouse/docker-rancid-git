@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-docker build --rm -t rancid-git .
+docker build --rm -t rancid .

@@ -25,7 +25,7 @@ Build this image locally on a host with Docker:
 
 Run a container with bash from the built image:
 
-    docker run --rm -it rancid-git
+    docker run --rm -it rancid
 
 
 License
