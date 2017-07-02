@@ -11,6 +11,12 @@ services:
     stdin_open: true
     tty: true
     read_only: true
+    cap_drop:
+      - all
+    pids_limit: 30
+    cpu_shares: 1023
+    mem_limit: 512M
+    shm_size: 32M
 
   help:
     <<: *defaults
