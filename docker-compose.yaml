@@ -8,6 +8,9 @@ services:
       args:
         - VERSION
         - RELEASE
+        - BUILD_DATE
+        - VCS_REF
+        - CI_BUILD_URL=${CIRCLE_BUILD_URL}
     stdin_open: true
     tty: true
     read_only: true

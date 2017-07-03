@@ -22,3 +22,13 @@
   output=$(docker-compose run version 2> /dev/null)
   [[ ${output} =~ ^rancid\ +${VERSION} ]]
 }
+
+@test "ci-build-url label is present" {
+  if [[ -z ${CIRCLE_BUILD_URL} ]]; then
+    skip "This test runs only on circleci"
+  fi
+  run docker inspect \
+      -f '{{ index .Config.Labels "io.github.jumanjiman.ci-build-url" }}' \
+      jumanjiman/rancid
+  [[ ${output} =~ circleci.com ]]
+}

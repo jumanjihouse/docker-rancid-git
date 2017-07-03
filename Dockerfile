@@ -32,3 +32,19 @@ VOLUME ["/var/rancid", "/usr/local/rancid/var"]
 
 # `docker run' starts bash by default.
 CMD ["/bin/sh"]
+
+# These args and labels go last in the Dockerfile so
+# we do not bust the docker build cache for local builds.
+ARG CI_BUILD_URL
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL \
+    io.github.jumanjiman.ci-build-url=${CI_BUILD_URL} \
+    io.github.jumanjiman.version=${VERSION}-${RELEASE} \
+    io.github.jumanjiman.build-date=${BUILD_DATE} \
+    io.github.jumanjiman.vcs-ref=${VCS_REF} \
+    io.github.jumanjiman.license="MIT" \
+    io.github.jumanjiman.docker.dockerfile="/Dockerfile" \
+    io.github.jumanjiman.vcs-type="Git" \
+    io.github.jumanjiman.vcs-url="https://github.com/jumanjihouse/docker-rancid-git.git"
