@@ -7,3 +7,5 @@ docker login -u ${user} -p ${pass}
 docker-compose push rancid_tag_pessimistic
 docker-compose push rancid_tag_optimistic
 docker logout
+
+curl -X POST 'https://hooks.microbadger.com/images/jumanjiman/rancid/QTyTWSknCxMR0T83yntDU-ubELY='

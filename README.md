@@ -10,6 +10,16 @@ with git support in a smallish container.
 RANCID monitors a device's configuration, including software and hardware,
 and uses CVS, Subversion, or Git to maintain history of changes.
 
+Project:            https://github.com/jumanjihouse/docker-rancid-git/<br/>
+Docker image:       https://registry.hub.docker.com/u/jumanjiman/rancid/<br/>
+Upstream rancid:    http://www.shrubbery.net/rancid/
+
+[![Download size](https://images.microbadger.com/badges/image/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid "View on microbadger.com")&nbsp;
+[![Version](https://images.microbadger.com/badges/version/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid "View on microbadger.com")&nbsp;
+[![Source code](https://images.microbadger.com/badges/commit/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid "View on microbadger.com")&nbsp;
+[![Docker Registry](https://img.shields.io/docker/pulls/jumanjiman/rancid.svg)](https://registry.hub.docker.com/u/jumanjiman/rancid/)&nbsp;
+[![CircleCI](https://circleci.com/gh/jumanjihouse/docker-rancid-git.svg?style=svg)](https://circleci.com/gh/jumanjihouse/docker-rancid-git)
+
 
 How-to
 ------
