@@ -51,6 +51,27 @@ Run a container with bash from the built image:
     docker run --rm -it jumanjiman/rancid
 
 
+### Test
+
+We use circleci to build, test, and publish the image to Docker hub.
+We use [BATS](https://github.com/sstephenson/bats) to run the test harness.
+
+Run the tests locally:
+
+    ci/test
+
+BATS output resembles:
+
+    ✓ image exists
+    ✓ tagged image exists - optimistic
+    ✓ tagged image exists - pessimistic
+    ✓ rancid -h shows help
+    ✓ rancid is the expected version
+    - ci-build-url label is present (skipped: This test runs only on circleci)
+
+    6 tests, 0 failures, 1 skipped
+
+
 License
 -------
 
