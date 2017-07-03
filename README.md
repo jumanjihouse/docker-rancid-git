@@ -54,4 +54,4 @@ Run a container with bash from the built image:
 License
 -------
 
-See LICENSE in this repo.
+See [`LICENSE`](LICENSE) in this repo.
