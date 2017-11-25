@@ -10,6 +10,14 @@ jobs:
     steps:
       - setup_remote_docker
 
+      - run:
+          name: Show docker versions
+          command: |
+            docker version
+            echo
+            echo
+            docker info
+
       - checkout
 
       - run:
