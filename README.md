@@ -64,22 +64,41 @@ Run a container with bash from the built image:
 ### Test
 
 We use circleci to build, test, and publish the image to Docker hub.
-We use [BATS](https://github.com/sstephenson/bats) to run the test harness.
+We use [BATS](https://github.com/sstephenson/bats)
+and [ShellCheck](https://github.com/koalaman/shellcheck) to run the test harness.
 
 Run the tests locally:
 
     ci/test
 
-BATS output resembles:
+Test output resembles:
 
-    ✓ image exists
-    ✓ tagged image exists - optimistic
-    ✓ tagged image exists - pessimistic
-    ✓ rancid -h shows help
-    ✓ rancid is the expected version
-    - ci-build-url label is present (skipped: This test runs only on circleci)
+    Check files for things like trailing whitespace.
+    DEBUG: checking .circleci/config.yml
+    DEBUG: checking .dockerignore
+    DEBUG: checking .gitignore
+    DEBUG: checking Dockerfile
+    DEBUG: checking LICENSE
+    DEBUG: checking README.md
+    DEBUG: checking ci/build
+    DEBUG: checking ci/check-files
+    DEBUG: checking ci/functions.sh
+    DEBUG: checking ci/publish
+    DEBUG: checking ci/test
+    DEBUG: checking docker-compose.yaml
+    DEBUG: checking test/05_basics.bats
+    INFO: ci/check-files OK
+
+    Run BATS tests.
+     ✓ image exists
+     ✓ tagged image exists - optimistic
+     ✓ tagged image exists - pessimistic
+     ✓ rancid -h shows help
+     ✓ rancid is the expected version
+     - ci-build-url label is present (skipped: This test runs only on circleci)
 
     6 tests, 0 failures, 1 skipped
+    INFO: ci/test OK
 
 
 License

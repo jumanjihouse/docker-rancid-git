@@ -1,9 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 set -u
-. ci/vars
+set -o pipefail
 
-docker login -u ${user} -p ${pass}
+################################################################################
+# Publish docker image(s). Invoke as "ci/publish" from the root of the git repo.
+################################################################################
+
+. ci/vars
+. ci/functions.sh
+
+# shellcheck disable=SC2154
+docker login -u "${user}" -p "${pass}"
 docker-compose push rancid_tag_pessimistic
 docker-compose push rancid_tag_optimistic
 docker logout
