@@ -86,7 +86,7 @@ Test output resembles:
     DEBUG: checking ci/publish
     DEBUG: checking ci/test
     DEBUG: checking docker-compose.yaml
-    DEBUG: checking test/05_basics.bats
+    DEBUG: checking ci/05_basics.bats
     INFO: ci/check-files OK
 
     Run BATS tests.

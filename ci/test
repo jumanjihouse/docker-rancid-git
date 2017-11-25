@@ -16,4 +16,4 @@ ci/check-files -d
 
 echo
 echo Run BATS tests.
-bats test/*.bats
+bats ci/*.bats

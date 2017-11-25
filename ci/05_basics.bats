@@ -1,3 +1,8 @@
+################################################################################
+# This file is used by BATS in the test harness invoked from "ci/test".
+# See https://github.com/sstephenson/bats for BATS syntax.
+################################################################################
+
 @test "image exists" {
   run docker images --format='{{ .Repository }}' rancid
   [[ ${output} =~ ^rancid$ ]]

@@ -45,6 +45,6 @@ LABEL \
     io.github.jumanjiman.build-date=${BUILD_DATE} \
     io.github.jumanjiman.vcs-ref=${VCS_REF} \
     io.github.jumanjiman.license="MIT" \
-    io.github.jumanjiman.docker.dockerfile="/Dockerfile" \
+    io.github.jumanjiman.docker.dockerfile="/src/Dockerfile" \
     io.github.jumanjiman.vcs-type="Git" \
     io.github.jumanjiman.vcs-url="https://github.com/jumanjihouse/docker-rancid-git.git"

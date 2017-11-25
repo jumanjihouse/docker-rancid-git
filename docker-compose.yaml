@@ -4,7 +4,7 @@ services:
   rancid: &defaults
     image: rancid
     build:
-      context: ./
+      context: src/
       args:
         - RANCID_VERSION
         - RANCID_RELEASE
