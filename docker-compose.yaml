@@ -4,10 +4,10 @@ services:
   rancid: &defaults
     image: rancid
     build:
-      context: ./
+      context: src/
       args:
-        - VERSION
-        - RELEASE
+        - RANCID_VERSION
+        - RANCID_RELEASE
         - BUILD_DATE
         - VCS_REF
         - CI_BUILD_URL=${CIRCLE_BUILD_URL}

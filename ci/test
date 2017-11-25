@@ -1,6 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 set -u
-. ci/vars
+set -o pipefail
 
-bats test/*.bats
+################################################################################
+# Test docker image(s). Invoke as "ci/test" from the root of the git repo.
+################################################################################
+
+. ci/vars
+. ci/functions.sh
+
+echo
+echo Check files for things like trailing whitespace.
+ci/check-files -d
+
+echo
+echo Run BATS tests.
+bats ci/*.bats

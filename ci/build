@@ -1,14 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 set -u
+set -o pipefail
+
+################################################################################
+# Build docker image(s). Invoke as "ci/build" from the root of the git repo.
+################################################################################
 
 cat > ci/vars <<EOF
-export VERSION=3.6.1
-export RELEASE=r0
-export BUILD_DATE=$(date +%Y%m%dT%H%M)
-export VCS_REF=$(git rev-parse --short HEAD)
-export TAG=\${VERSION}-\${RELEASE}_\${BUILD_DATE}_git_\${VCS_REF}
+#-------------------------------------------------------------------------------
+# This file is created by ci/build and never checked into version control.
+# It is sourced by various ci scripts.
+#-------------------------------------------------------------------------------
+declare -rx RANCID_VERSION=3.6.1
+declare -rx RANCID_RELEASE=r0
+declare -rx BUILD_DATE=$(date +%Y%m%dT%H%M)
+declare -rx VCS_REF=$(git rev-parse --short HEAD)
+declare -rx TAG=\${RANCID_VERSION}-\${RANCID_RELEASE}_\${BUILD_DATE}_git_\${VCS_REF}
 EOF
 . ci/vars
+. ci/functions.sh
 
 docker-compose build

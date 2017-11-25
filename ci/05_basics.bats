@@ -1,3 +1,8 @@
+################################################################################
+# This file is used by BATS in the test harness invoked from "ci/test".
+# See https://github.com/sstephenson/bats for BATS syntax.
+################################################################################
+
 @test "image exists" {
   run docker images --format='{{ .Repository }}' rancid
   [[ ${output} =~ ^rancid$ ]]
@@ -10,7 +15,7 @@
 
 @test "tagged image exists - pessimistic" {
   run docker images --format='{{ .Tag }}' jumanjiman/rancid
-  [[ ${output} =~ ^${VERSION}-${RELEASE}_.*_git_.* ]]
+  [[ ${output} =~ ^${RANCID_VERSION}-${RANCID_RELEASE}_.*_git_.* ]]
 }
 
 @test "rancid -h shows help" {
@@ -20,7 +25,7 @@
 
 @test "rancid is the expected version" {
   output=$(docker-compose run version 2> /dev/null)
-  [[ ${output} =~ ^rancid\ +${VERSION} ]]
+  [[ ${output} =~ ^rancid\ +${RANCID_VERSION} ]]
 }
 
 @test "ci-build-url label is present" {
