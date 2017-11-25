@@ -3,8 +3,8 @@ FROM alpine:3.6
 # Use less to view man-pages since busybox `more' lacks the -s option.
 ENV PAGER=less
 
-ARG VERSION
-ARG RELEASE
+ARG RANCID_VERSION
+ARG RANCID_RELEASE
 
 # Install dependencies.
 RUN apk add --no-cache \
@@ -15,7 +15,7 @@ RUN apk add --no-cache \
       mdocml-apropos \
       perl \
       perl-socket6 \
-      "rancid=${VERSION}-${RELEASE}" \
+      "rancid=${RANCID_VERSION}-${RANCID_RELEASE}" \
       rancid-doc \
       && \
     :
@@ -41,7 +41,7 @@ ARG VCS_REF
 
 LABEL \
     io.github.jumanjiman.ci-build-url=${CI_BUILD_URL} \
-    io.github.jumanjiman.version=${VERSION}-${RELEASE} \
+    io.github.jumanjiman.version=${RANCID_VERSION}-${RANCID_RELEASE} \
     io.github.jumanjiman.build-date=${BUILD_DATE} \
     io.github.jumanjiman.vcs-ref=${VCS_REF} \
     io.github.jumanjiman.license="MIT" \

@@ -12,11 +12,11 @@ cat > ci/vars <<EOF
 # This file is created by ci/build and never checked into version control.
 # It is sourced by various ci scripts.
 #-------------------------------------------------------------------------------
-declare -rx VERSION=3.6.1
-declare -rx RELEASE=r0
+declare -rx RANCID_VERSION=3.6.1
+declare -rx RANCID_RELEASE=r0
 declare -rx BUILD_DATE=$(date +%Y%m%dT%H%M)
 declare -rx VCS_REF=$(git rev-parse --short HEAD)
-declare -rx TAG=\${VERSION}-\${RELEASE}_\${BUILD_DATE}_git_\${VCS_REF}
+declare -rx TAG=\${RANCID_VERSION}-\${RANCID_RELEASE}_\${BUILD_DATE}_git_\${VCS_REF}
 EOF
 . ci/vars
 . ci/functions.sh
