@@ -1,5 +1,4 @@
-rancid-git on Alpine Linux
-==========================
+# rancid-git on Alpine Linux
 
 Overview
 --------
