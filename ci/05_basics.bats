@@ -1,6 +1,6 @@
 ################################################################################
 # This file is used by BATS in the test harness invoked from "ci/test".
-# See https://github.com/sstephenson/bats for BATS syntax.
+# See https://github.com/bats-core/bats-core for BATS syntax.
 ################################################################################
 
 @test "image exists" {

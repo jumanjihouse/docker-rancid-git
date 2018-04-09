@@ -1,6 +1,5 @@
 #!/bin/bash
-set -e
-set -u
+set -eEu
 set -o pipefail
 
 ################################################################################
@@ -8,11 +7,11 @@ set -o pipefail
 ################################################################################
 
 . ci/vars
-. ci/functions.sh
+. ci/bootstrap
 
 echo
 echo Check files for things like trailing whitespace.
-ci/check-files -d
+pre-commit run --all-files --verbose --hook-stage manual
 
 echo
 echo Run BATS tests.

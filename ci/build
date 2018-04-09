@@ -1,13 +1,12 @@
 #!/bin/bash
-set -e
-set -u
+set -eEu
 set -o pipefail
 
 ################################################################################
 # Build docker image(s). Invoke as "ci/build" from the root of the git repo.
 ################################################################################
 
-cat > ci/vars <<EOF
+cat >ci/vars <<EOF
 #-------------------------------------------------------------------------------
 # This file is created by ci/build and never checked into version control.
 # It is sourced by various ci scripts.
