@@ -64,7 +64,7 @@ Run a container with bash from the built image:
 ### Test
 
 We use circleci to build, test, and publish the image to Docker hub.
-We use [BATS](https://github.com/sstephenson/bats)
+We use [BATS](https://github.com/bats-core/bats-core)
 and [ShellCheck](https://github.com/koalaman/shellcheck) to run the test harness.
 
 Run the tests locally:
@@ -74,20 +74,21 @@ Run the tests locally:
 Test output resembles:
 
     Check files for things like trailing whitespace.
-    DEBUG: checking .circleci/config.yml
-    DEBUG: checking .dockerignore
-    DEBUG: checking .gitignore
-    DEBUG: checking Dockerfile
-    DEBUG: checking LICENSE
-    DEBUG: checking README.md
-    DEBUG: checking ci/build
-    DEBUG: checking ci/check-files
-    DEBUG: checking ci/functions.sh
-    DEBUG: checking ci/publish
-    DEBUG: checking ci/test
-    DEBUG: checking docker-compose.yaml
-    DEBUG: checking ci/05_basics.bats
-    INFO: ci/check-files OK
+    [yamllint] yamllint..........................................................................Passed
+    [check-added-large-files] Check for added large files........................................Passed
+    [check-case-conflict] Check for case conflicts...............................................Passed
+    [check-executables-have-shebangs] Check that executables have shebangs.......................Passed
+    [check-symlinks] Check for broken symlinks...............................(no files to check)Skipped
+    [check-vcs-permalinks] Check vcs permalinks..................................................Passed
+    [detect-private-key] Detect Private Key......................................................Passed
+    [forbid-crlf] CRLF end-lines checker.........................................................Passed
+    [forbid-tabs] No-tabs checker................................................................Passed
+    [forbid-binary] Forbid binaries..........................................(no files to check)Skipped
+    [git-check] Check for conflict markers and core.whitespace errors............................Passed
+    [git-dirty] Check if the git tree is dirty...................................................Passed
+    [shellcheck] Test shell scripts with shellcheck..............................................Passed
+    [shfmt] Check shell style with shfmt.........................................................Passed
+    [gitlint] gitlint............................................................................Passed
 
     Run BATS tests.
      ✓ image exists
@@ -98,7 +99,7 @@ Test output resembles:
      - ci-build-url label is present (skipped: This test runs only on circleci)
 
     6 tests, 0 failures, 1 skipped
-    INFO: ci/test OK
+    [INFO] ci/test OK
 
 
 License
