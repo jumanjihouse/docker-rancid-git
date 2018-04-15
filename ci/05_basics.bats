@@ -19,12 +19,12 @@
 }
 
 @test "rancid -h shows help" {
-  output=$(docker-compose run help 2> /dev/null || :)
+  run docker-compose run help
   [[ ${output} =~ rancid.*-.*h ]]
 }
 
 @test "rancid is the expected version" {
-  output=$(docker-compose run version 2> /dev/null)
+  run docker-compose run version
   [[ ${output} =~ rancid\ +${RANCID_VERSION} ]]
 }
 
