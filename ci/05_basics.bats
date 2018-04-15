@@ -20,12 +20,12 @@
 
 @test "rancid -h shows help" {
   output=$(docker-compose run help 2> /dev/null || :)
-  [[ ${output} =~ ^rancid.*-.*h ]]
+  [[ ${output} =~ rancid.*-.*h ]]
 }
 
 @test "rancid is the expected version" {
   output=$(docker-compose run version 2> /dev/null)
-  [[ ${output} =~ ^rancid\ +${RANCID_VERSION} ]]
+  [[ ${output} =~ rancid\ +${RANCID_VERSION} ]]
 }
 
 @test "ci-build-url label is present" {
