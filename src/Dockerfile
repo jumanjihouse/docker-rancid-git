@@ -13,6 +13,7 @@ RUN apk add --no-cache \
       git \
       man man-pages \
       mdocml-apropos \
+      openssh-client \
       perl \
       perl-socket6 \
       "rancid=${RANCID_VERSION}-${RANCID_RELEASE}" \
