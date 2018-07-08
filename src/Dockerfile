@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 # Use less to view man-pages since busybox `more' lacks the -s option.
 ENV PAGER=less
