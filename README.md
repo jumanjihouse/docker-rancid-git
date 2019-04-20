@@ -1,8 +1,6 @@
-rancid-git on Alpine Linux
-==========================
+# rancid-git on Alpine Linux
 
-Overview
---------
+## Overview
 
 Provide [`rancid`](http://www.shrubbery.net/rancid/),
 the Really Awesome New Cisco confIg Differ,
@@ -14,15 +12,14 @@ Project:            https://github.com/jumanjihouse/docker-rancid-git/<br/>
 Docker image:       https://registry.hub.docker.com/u/jumanjiman/rancid/<br/>
 Upstream rancid:    http://www.shrubbery.net/rancid/
 
-[![Download size](https://images.microbadger.com/badges/image/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid "View on microbadger.com")&nbsp;
-[![Version](https://images.microbadger.com/badges/version/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid "View on microbadger.com")&nbsp;
-[![Source code](https://images.microbadger.com/badges/commit/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid "View on microbadger.com")&nbsp;
+[![Download size](https://images.microbadger.com/badges/image/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid)&nbsp;
+[![Version](https://images.microbadger.com/badges/version/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid)&nbsp;
+[![Source code](https://images.microbadger.com/badges/commit/jumanjiman/rancid.svg)](http://microbadger.com/images/jumanjiman/rancid)&nbsp;
 [![Docker Registry](https://img.shields.io/docker/pulls/jumanjiman/rancid.svg)](https://registry.hub.docker.com/u/jumanjiman/rancid/)&nbsp;
 [![CircleCI](https://circleci.com/gh/jumanjihouse/docker-rancid-git.svg?style=svg)](https://circleci.com/gh/jumanjihouse/docker-rancid-git)
 
 
-How-to
-------
+## How-to
 
 ### Pull an already-built image
 
@@ -91,18 +88,17 @@ Test output resembles:
     [gitlint] gitlint............................................................................Passed
 
     Run BATS tests.
-     ✓ image exists
-     ✓ tagged image exists - optimistic
-     ✓ tagged image exists - pessimistic
-     ✓ rancid -h shows help
-     ✓ rancid is the expected version
+     ok image exists
+     ok tagged image exists - optimistic
+     ok tagged image exists - pessimistic
+     ok rancid -h shows help
+     ok rancid is the expected version
      - ci-build-url label is present (skipped: This test runs only on circleci)
 
     6 tests, 0 failures, 1 skipped
     [INFO] ci/test OK
 
 
-License
--------
+## License
 
 See [`LICENSE`](LICENSE) in this repo.

@@ -11,7 +11,7 @@ set -o pipefail
 
 echo
 echo Check files for things like trailing whitespace.
-pre-commit run --all-files --verbose --hook-stage manual
+pre-commit run --all-files --hook-stage manual
 
 echo
 echo Run BATS tests.

@@ -5,13 +5,13 @@ fail_fast: false
 repos:
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.11.1
+    rev: v1.15.0
     hooks:
       - id: yamllint
         args: ['--format', 'parsable', '--strict']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.3.0
+    rev: v2.1.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -21,22 +21,31 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.5
+    rev: v1.1.6
     hooks:
       - id: forbid-crlf
       - id: forbid-tabs
 
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 1.7.1
+    rev: 1.11.0
     hooks:
+      - id: check-mailmap
+      - id: fasterer
       - id: forbid-binary
       - id: git-check  # Configure in .gitattributes
       - id: git-dirty  # Configure in .gitignore
+      - id: markdownlint  # Configure in .mdlrc
+      - id: reek
+      - id: require-ascii
+      - id: rubocop
+      - id: script-must-have-extension
+      - id: script-must-not-have-extension
       - id: shellcheck
       - id: shfmt
 
+
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.10.0
+    rev: v0.11.0
     hooks:
       - id: gitlint
         stages: [commit-msg]
