@@ -6,12 +6,6 @@ services:
     image: rancid
     build:
       context: src/
-      args:
-        - RANCID_VERSION
-        - RANCID_RELEASE
-        - BUILD_DATE
-        - VCS_REF
-        - CI_BUILD_URL=${CIRCLE_BUILD_URL}
     stdin_open: true
     tty: true
     read_only: true
@@ -22,20 +16,15 @@ services:
     mem_limit: 512M
     shm_size: 32M
 
-  rancid_tag_pessimistic:
-    <<: *defaults
-    image: jumanjiman/rancid:${TAG}
-
-  rancid_tag_optimistic:
-    <<: *defaults
-    image: jumanjiman/rancid:latest
-
   help:
     <<: *defaults
     entrypoint: rancid
     command: -h
 
   version:
-    <<: *defaults
-    entrypoint: rancid
-    command: -V
+    image: rancid
+    entrypoint:
+      - sh
+    command:
+      - -c
+      - "apk policy rancid 2>/dev/null | tail -n +2 | head -1 | tr -d ' :'"
