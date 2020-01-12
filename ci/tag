@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+################################################################################
+# Tag images.
+################################################################################
+
+cat >ci/vars <<EOF
+#-------------------------------------------------------------------------------
+# ci/vars is created by ci/tag and never checked into version control.
+#-------------------------------------------------------------------------------
+declare -rx VERSION=$(docker-compose run version 2>/dev/null | grep -o '[0-9a-zA-Z._\-]*')
+declare -rx BUILD_DATE=$(date +%Y%m%dT%H%M)
+declare -rx VCS_REF=$(git rev-parse --short HEAD)
+declare -rx TAG=\${VERSION}_\${BUILD_DATE}_git_\${VCS_REF}
+EOF
+
+. ci/vars
+. ci/functions.sh
+
+docker-compose -f docker-compose-metadata.yaml build

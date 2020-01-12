@@ -1,0 +1,24 @@
+---
+version: '2.1'
+
+services:
+  rancid-tagged: &tagged
+    image: jumanjiman/rancid:${TAG}
+    build:
+      context: src/
+      labels:
+        - io.github.jumanjiman.ci-build-url=${CI_BUILD_URL}
+        - io.github.jumanjiman.version=${VERSION}
+        - io.github.jumanjiman.build-date=${BUILD_DATE}
+        - io.github.jumanjiman.vcs-ref=${VCS_REF}
+        - io.github.jumanjiman.name=jumanjiman/rancid
+        - io.github.jumanjiman.description=Really Awesome New Cisco confIg Differ
+        - io.github.jumanjiman.url=https://github.com/jumanjihouse/docker-rancid-git
+        - io.github.jumanjiman.license=MIT
+        - io.github.jumanjiman.docker.dockerfile=/src/Dockerfile
+        - io.github.jumanjiman.vcs-type=Git
+        - io.github.jumanjiman.vcs-url=https://github.com/jumanjihouse/docker-rancid-git.git
+
+  rancid-latest:
+    <<: *tagged
+    image: jumanjiman/rancid

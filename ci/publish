@@ -11,8 +11,7 @@ set -o pipefail
 
 # shellcheck disable=SC2154
 docker login -u "${user}" -p "${pass}"
-docker-compose push rancid_tag_pessimistic
-docker-compose push rancid_tag_optimistic
+docker-compose -f docker-compose-metadata.yaml push
 docker logout
 
 curl -X POST 'https://hooks.microbadger.com/images/jumanjiman/rancid/QTyTWSknCxMR0T83yntDU-ubELY='
